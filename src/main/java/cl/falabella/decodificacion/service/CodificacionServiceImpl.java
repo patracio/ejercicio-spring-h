@@ -12,13 +12,19 @@ public class CodificacionServiceImpl implements CodificacionService
     {
     	String encodedString = Base64.getEncoder().encodeToString(dato.getBytes());
         return new String(encodedString);
+        //return null;
     }
 
 
     public String decodificarMensaje(String dato)
     {
-    	byte[] decodedBytes = Base64.getDecoder().decode(dato);
-    	String decodedString = new String(decodedBytes);
-        return new String(decodedString);
+        String result = dato.replaceAll("[^a-zA-Z0-9]","");
+        return result;
+    	//String newStr = "";
+        //for (int i=0;i<dato.length();i++)
+        //{
+            
+        //}
+
     }
 }
